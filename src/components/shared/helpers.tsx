@@ -13,7 +13,7 @@ type PropsProduct = {
   cardSubText?: ReactElement;
   priceMedium?: string;
   price?: ReactElement;
-  bgImg?: string | any;
+  bgImg?: string;
 };
 
 type PropsAbout = {
