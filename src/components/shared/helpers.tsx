@@ -2,8 +2,8 @@ import { ReactElement } from "react";
 
 type PropsCardData = {
   id: number;
-  title: any;
-  text: any;
+  title: string | ReactElement;
+  text: string;
   image: string;
 };
 
@@ -13,7 +13,7 @@ type PropsProduct = {
   cardSubText?: ReactElement;
   priceMedium?: string;
   price?: ReactElement;
-  bgImg?: any;
+  bgImg?: string | any;
 };
 
 type PropsAbout = {
