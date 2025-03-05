@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "./ui/Button";
 import { InputBanner } from "./shared/inputBanner";
-import { MainCard } from "./shared/MainCard";
 
 export const Main = () => {
   const phone = "+7 (953) 998-23-36";
