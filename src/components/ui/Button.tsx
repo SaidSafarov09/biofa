@@ -1,6 +1,5 @@
 import React from "react";
 
-// Определим классы для двух вариантов кнопки
 const buttonVariants = {
   first: "bg-[#9E1C46] text-white hover:bg-[#2F0815]",
   second: "bg-[#1C9D74] text-white hover:bg-[#28745C]",
@@ -11,16 +10,17 @@ type Props = {
   text: string;
   variant?: "first" | "second";
   asChild?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Button = React.forwardRef<HTMLButtonElement, Props>(
-  ({ className, text, variant = "first", asChild = false, ...props }, ref) => {
+  ({ className, text, variant = "first", asChild = false, onClick, ...props }, ref) => {
     const Comp = asChild ? "span" : "button"; 
     const variantClasses = buttonVariants[variant];
 
     return (
       <Comp
-        className={(`
+        className={`
           ${variantClasses} 
           ${className} 
           rounded-[12px] 
@@ -31,8 +31,9 @@ const Button = React.forwardRef<HTMLButtonElement, Props>(
           duration-300 
           ease-in-out 
           cursor-pointer
-        `)}
+        `}
         ref={ref}
+        onClick={onClick}
         {...props}
       >
         {text}

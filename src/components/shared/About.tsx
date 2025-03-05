@@ -20,7 +20,7 @@ export const About = () => {
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8 }}
-        className="flex justify-between flex-col gap-y-10 m:gap-y-0 m:flex-row"
+        className="flex justify-between flex-col gap-y-10 m:gap-y-0 m:flex-row l:items-center"
       >
         <div className="text-start text-[#9D1C45] xl:w-full text-[30px] leading-[37.5px] m:text-[24px] m:leading-[30px] l:text-[32px] l:leading-10 font-semibold">
           Наш продукт
@@ -47,8 +47,9 @@ export const About = () => {
         </div>
         <Button
           text="Заказать покраску"
-          className="text-base px-5 py-4 l:!text-[20px] leading-[20px] font-semibold l:px-6 l:py-[18px] m:w-[230px] w-full"
+          className="text-base px-5 py-4 l:!text-[20px] leading-[20px] font-semibold l:px-6 l:py-[18px] m:w-[230px] xl:w-[520px] h-max"
           variant="first"
+          onClick={() => window.location.href = 'https://germetdom.ru'}
         />
       </motion.div>
 

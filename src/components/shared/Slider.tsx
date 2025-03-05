@@ -41,8 +41,6 @@ export const Slider = () => {
         Примеры выполненных<br className='l:hidden'/> работ маслом Biofa
       </p>
       <div className='mt-12'>
-
-        {/* Первый слайдер */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -53,7 +51,7 @@ export const Slider = () => {
             spaceBetween={10}
             slidesPerView={1.5}
             centeredSlides={true}
-            initialSlide={1}
+            initialSlide={2}
             breakpoints={{
               640: { slidesPerView: 2.2 },
               1024: { slidesPerView: 3.5 },
@@ -70,8 +68,6 @@ export const Slider = () => {
             ))}
           </Swiper>
         </motion.div>
-
-        {/* Второй слайдер */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -82,7 +78,7 @@ export const Slider = () => {
             spaceBetween={10}
             slidesPerView={1.5}
             centeredSlides={true}
-            initialSlide={1}
+            initialSlide={2}
             breakpoints={{
               640: { slidesPerView: 2.2 },
               1024: { slidesPerView: 3.5 },
