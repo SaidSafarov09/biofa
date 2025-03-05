@@ -35,12 +35,14 @@ export const Slider = () => {
       initial={{ opacity: 0, x: -50 }} 
       animate={{ opacity: 1, x: 0 }} 
       transition={{ duration: 0.8 }}
-      className="bg-[#33282C] py-20"
+      className="relative bg-[#33282C] py-[48px] m:py-[60px] l:py-20 before:z-[10] after:z-[10] before:absolute before:top-0 before:left-0 before:w-[100px] before:h-full before:bg-gradient-to-r before:from-black/50 before:to-transparent after:absolute after:top-0 after:right-0 after:w-[100px] after:h-full after:bg-gradient-to-l after:from-black/50 after:to-transparent"
     >
-      <p className="text-white text-[32px] font-semibold leading-10 l:px-[30px] xl:px-[140px]">
-        Примеры выполненных работ маслом Biofa
+      <p className="text-white text-[30px] leading-[36px] m:text-[32px] font-semibold m:leading-10 px-[30px] xl:px-[140px] relative z-[15]">
+        Примеры выполненных<br className='l:hidden'/> работ маслом Biofa
       </p>
       <div className='mt-12'>
+
+        {/* Первый слайдер */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -48,24 +50,28 @@ export const Slider = () => {
           viewport={{ once: true }}
         >
           <Swiper
-            spaceBetween={40}
-            slidesPerView={1}
+            spaceBetween={10}
+            slidesPerView={1.5}
+            centeredSlides={true}
+            initialSlide={1}
             breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 4 },
+              640: { slidesPerView: 2.2 },
+              1024: { slidesPerView: 3.5 },
             }}
             modules={[Pagination]}
-            className="w-11/12 mx-auto"
+            className="w-full mx-auto"
           >
             {images.map((src, index) => (
               <SwiperSlide key={index}>
-                <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden">
+                <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-xl transition transform scale-90 hover:scale-100">
                   <Image src={src} alt={`House ${index + 1}`} layout="fill" objectFit="cover" />
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </motion.div>
+
+        {/* Второй слайдер */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -73,25 +79,28 @@ export const Slider = () => {
           viewport={{ once: true }}
         >
           <Swiper
-            spaceBetween={40}
-            slidesPerView={1}
+            spaceBetween={10}
+            slidesPerView={1.5}
+            centeredSlides={true}
+            initialSlide={1}
             breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 4 },
+              640: { slidesPerView: 2.2 },
+              1024: { slidesPerView: 3.5 },
             }}
             modules={[Pagination]}
-            className="w-11/12 mx-auto mt-10"
+            className="w-full mx-auto mt-10"
           >
             {images2.map((src, index) => (
               <SwiperSlide key={index}>
-                <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden">
+                <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-xl transition transform scale-90 hover:scale-100">
                   <Image src={src} alt={`House ${index + 1}`} layout="fill" objectFit="cover" />
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </motion.div>
+
       </div>
     </motion.div>
   );
-}
+};

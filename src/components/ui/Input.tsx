@@ -25,7 +25,7 @@ export default function Input({ placeholder, src, type = "text" }: Props) {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder={placeholder}
-        className={`w-[210px] pl-12 pr-4 py-2 rounded-[12px] bg-white text-gray-600 border-none shadow-md focus:outline-none focus:ring-2 focus:ring-transparent ${
+        className={`w-full l:w-[210px] pl-12 pr-4 py-2 rounded-[12px] bg-white text-gray-600 border-none shadow-md focus:outline-none focus:ring-2 focus:ring-transparent ${
           type === "number" ? "appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-moz-appearance]:textfield" : ""
         }`}
       />
