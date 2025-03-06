@@ -5,11 +5,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 type Props = {
-    closeModal?: any;
-  };
-  
+  closeModal: () => void;
+};
 
-export const ModalForm = ({closeModal}: Props) => {
+export const ModalForm = ({ closeModal }: Props) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,6 +46,7 @@ export const ModalForm = ({closeModal}: Props) => {
         setHasError(true);
       }
     } catch (error) {
+      console.log(error)
       setHasError(true);
     } finally {
       setIsSubmitting(false);
@@ -140,10 +140,11 @@ export const ModalForm = ({closeModal}: Props) => {
         >
           <div className="flex flex-col items-center gap-y-4">
             <p className="text-[#9D1C45] text-[20px] font-semibold">
-            Ошибка сервера
+              Ошибка сервера
             </p>
             <p className="text-[#33282C] text-sm">
-            Произошла ошибка, попробуйте<br/> отправить позже
+              Произошла ошибка, попробуйте
+              <br /> отправить позже
             </p>
             <Image src="/formError.svg" alt="error" width={28} height={28} />
             <Button

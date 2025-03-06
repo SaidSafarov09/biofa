@@ -8,7 +8,7 @@ import Modal from "react-modal";
 import { ModalForm } from "./ModalForm";
 
 type Props = {
-  closeModalProduct?: any;
+  closeModalProduct: () => void;
 };
 
 export const ModalProduct = ({ closeModalProduct }: Props) => {

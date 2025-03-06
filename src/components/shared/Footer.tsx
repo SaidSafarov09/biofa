@@ -187,7 +187,7 @@ export const Footer = () => {
           transition={{ duration: 0.8 }}
           className="w-full"
         >
-          <ModalForm />
+          <ModalForm closeModal={closeModal}/>
         </motion.div>
       </Modal>
     </motion.div>
