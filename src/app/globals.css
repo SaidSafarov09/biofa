@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.price-container p {
+  background-color: #1c9d74;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

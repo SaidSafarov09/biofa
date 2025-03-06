@@ -1,12 +1,25 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "./ui/Button";
 import { InputBanner } from "./shared/inputBanner";
+import Modal from "react-modal"; 
+import { ModalForm } from "./ui/ModalForm";
 
 export const Main = () => {
   const phone = "+7 (953) 998-23-36";
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+  };
 
   return (
     <motion.div
@@ -36,6 +49,7 @@ export const Main = () => {
         <div className="flex l:gap-8 l:flex-row flex-col gap-y-6 l:gap-y-0 justify-center m:items-end l:items-center xl:gap-x-10">
           <Button
             text="Заказать покраску"
+            onClick={openModal}
             className="px-[14px] py-3 l:px-[14.5px] l:py-3 text-[14px] leading-[14px] l:leading-4 font-semibold w-max"
           />
           <div className="flex items-center gap-3">
@@ -82,9 +96,24 @@ export const Main = () => {
             <InputBanner className="mt-8 l:mt-20 flex justify-center" />
           </div>
         </motion.div>
-
-        
       </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        ariaHideApp={false}
+        className="w-[300px] m-auto bg-white rounded-[24px] shadow-lg"
+        overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
+      >
+        <motion.div
+          initial={{ y: -1000, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="w-full"
+        >
+          <ModalForm closeModal={closeModal}/>
+        </motion.div>
+      </Modal>
     </motion.div>
   );
 };

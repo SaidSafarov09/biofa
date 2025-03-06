@@ -17,6 +17,9 @@
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-input-mask": "^2.0.4",
+    "react-input-mask-next": "^3.0.0-alpha.12",
+    "react-modal": "^3.16.3",
     "swiper": "^11.2.4"
   },
   "devDependencies": {
@@ -25,6 +28,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-input-mask": "^3.0.6",
+    "@types/react-modal": "^3.16.3",
     "@types/tailwindcss": "^3.0.11",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",

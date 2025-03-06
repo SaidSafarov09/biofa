@@ -1,12 +1,26 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { productData } from "./helpers";
 import { Button } from "../ui/Button";
 import Image from "next/image";
+import { ModalProduct } from "../ui/ModalProduct";
+import Modal from "react-modal";
 
 export const ProductView = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModalProduct = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModalProduct = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -77,12 +91,25 @@ export const ProductView = () => {
                 <Button
                   text="Рассчитать"
                   className="px-3 py-2.5 xl:text-[20px] xl:leading-[25px] l:text-[18px] l:leading-[22.5px]"
+                  onClick={openModalProduct}
                 />
               </div>
             </motion.div>
           )
         )}
       </motion.div>
+      <AnimatePresence>
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModalProduct}
+          contentLabel="Modal"
+          ariaHideApp={false}
+          className="relative z-[100] py-[30px] px-5  m:px-[30] l:px-[43px] l:py-10 xl:p-10 bg-white rounded-lg mx-auto w-[320px] m:w-[540px] l:w-[786px] xl:w-[1070px]"
+          overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
+        >
+          <ModalProduct closeModalProduct={closeModalProduct} />
+        </Modal>
+      </AnimatePresence>
     </motion.div>
   );
 };
