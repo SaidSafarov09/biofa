@@ -13,7 +13,7 @@ export const About = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 1 }}
-      className="px-[30] xl:px-[140px] py-[30px] l:py-20"
+      className="px-[30px] xl:px-[140px] py-[30px] l:py-20"
     >
       <motion.div
         initial={{ y: -50, opacity: 0 }}
