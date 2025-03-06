@@ -119,7 +119,7 @@ export const Footer = () => {
               Политика
               <br className="hidden m:block l:hidden" /> конфиденциальности
             </p>
-            <div className="flex gap-x-4 justify-end">
+            <div className="flex gap-x-4 m:justify-end">
               <Image src="/tg.svg" alt="telegramm" width={32} height={32} />
               <Image src="/wa.svg" alt="whatsapp" width={32} height={32} />
               <Image src="/inst.svg" alt="instagramm" width={32} height={32} />
