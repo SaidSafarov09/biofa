@@ -46,7 +46,7 @@ export const ModalForm = ({ closeModal }: Props) => {
         setHasError(true);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setHasError(true);
     } finally {
       setIsSubmitting(false);
@@ -76,9 +76,10 @@ export const ModalForm = ({ closeModal }: Props) => {
 
       <motion.div
         className="flex-col flex w-full gap-y-[18px] relative"
-        initial={{ opacity: 1 }}
         animate={{ opacity: isSubmitted || hasError ? 0 : 1 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
       >
         {!isSubmitted && !hasError && (
           <>
