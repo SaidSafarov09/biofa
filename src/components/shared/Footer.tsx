@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Button } from "../ui/Button";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Modal from "react-modal";
 import { ModalForm } from "../ui/ModalForm";
 import Link from "next/link";
@@ -124,13 +124,19 @@ export const Footer = () => {
                 </a>
               </div>
             </div>
-            <Link href="/policy" className="hidden m:block text-[#33282C] l:leading-4 xl:leading-[18px] font-medium l:text-[16px] xl:text-[18px]">
+            <Link
+              href="/policy"
+              className="hidden m:block text-[#33282C] l:leading-4 xl:leading-[18px] font-medium l:text-[16px] xl:text-[18px]"
+            >
               Политика
               <br className="hidden m:block l:hidden" /> конфиденциальности
             </Link>
           </div>
           <div className="mt-10 m:mt-0 flex flex-col m:flex-col-reverse l:flex-row gap-y-10 m:gap-y-4 l:w-full l:gap-x-[60px] xl:gap-x-[125px] justify-end">
-            <Link href="/policy" className="m:hidden text-[#33282C] l:leading-4 xl:leading-[18px] font-medium l:text-[16px] xl:text-[18px]">
+            <Link
+              href="/policy"
+              className="m:hidden text-[#33282C] l:leading-4 xl:leading-[18px] font-medium l:text-[16px] xl:text-[18px]"
+            >
               Политика
               <br className="hidden m:block l:hidden" /> конфиденциальности
             </Link>
@@ -173,23 +179,18 @@ export const Footer = () => {
           </div>
         </motion.div>
       </div>
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        ariaHideApp={false}
-        contentLabel="Заказать покраску"
-        className="w-[300px] m-auto bg-white rounded-[24px] shadow-lg"
-        overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
-      >
-        <motion.div
-          initial={{ y: -1000, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="w-full"
+      <AnimatePresence>
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          ariaHideApp={false}
+          contentLabel="Заказать покраску"
+          className="w-[300px] m-auto bg-white rounded-[24px] shadow-lg"
+          overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
         >
-          <ModalForm closeModal={closeModal}/>
-        </motion.div>
-      </Modal>
+          <ModalForm closeModal={closeModal} />
+        </Modal>
+      </AnimatePresence>
     </motion.div>
   );
 };

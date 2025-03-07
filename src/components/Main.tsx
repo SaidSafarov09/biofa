@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "./ui/Button";
 import { InputBanner } from "./shared/inputBanner";
-import Modal from "react-modal"; 
+import Modal from "react-modal";
 import { ModalForm } from "./ui/ModalForm";
 
 export const Main = () => {
@@ -13,12 +13,12 @@ export const Main = () => {
 
   const openModal = () => {
     setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   };
 
   return (
@@ -86,34 +86,31 @@ export const Main = () => {
               className="flex flex-col gap-y-6 l:gap-y-8 "
             >
               <p className="font-bold text-[32px] leading-10  m:text-[40px] xl:text-[48px] text-white m:leading-[50px] xl:leading-[60px]">
-                Немецкие масла<br className="l:hidden"/> для дерева Biofa
+                Немецкие масла
+                <br className="l:hidden" /> для дерева Biofa
               </p>
               <p className="text-white text-[18px] leading-[22.5px] m:text-[20px] m:leading-[25px] l:text-[24px] l:leading-[30px]  xl:text-[28px] xl:leading-[35px]">
-                Создано для российского сурового<br className="l:hidden"/> климата
-                <br className="hidden l:block"/> и проверено на практике<br className="l:hidden"/> более 10 лет
+                Создано для российского сурового
+                <br className="l:hidden" /> климата
+                <br className="hidden l:block" /> и проверено на практике
+                <br className="l:hidden" /> более 10 лет
               </p>
             </motion.div>
             <InputBanner className="mt-8 l:mt-20 flex justify-center" />
           </div>
         </motion.div>
       </div>
-
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        ariaHideApp={false}
-        className="w-[300px] m-auto bg-white rounded-[24px] shadow-lg"
-        overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
-      >
-        <motion.div
-          initial={{ y: -1000, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="w-full"
+      <AnimatePresence>
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          ariaHideApp={false}
+          className="w-[300px] m-auto bg-white rounded-[24px] shadow-lg"
+          overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
         >
-          <ModalForm closeModal={closeModal}/>
-        </motion.div>
-      </Modal>
+          <ModalForm closeModal={closeModal} />
+        </Modal>
+      </AnimatePresence>
     </motion.div>
   );
 };

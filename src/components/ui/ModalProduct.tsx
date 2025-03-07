@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { modalContent } from "../shared/modalHelpers";
 import Image from "next/image";
@@ -90,6 +90,7 @@ export const ModalProduct = ({ closeModalProduct }: Props) => {
           </div>
         ))}
       </div>
+      <AnimatePresence>
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
@@ -97,15 +98,9 @@ export const ModalProduct = ({ closeModalProduct }: Props) => {
         className="w-[300px] m-auto bg-white rounded-[24px] shadow-lg"
         overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
       >
-        <motion.div
-          initial={{ y: -1000, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="w-full"
-        >
           <ModalForm closeModal={closeModal} />
-        </motion.div>
       </Modal>
+      </AnimatePresence>
     </motion.div>
   );
 };
