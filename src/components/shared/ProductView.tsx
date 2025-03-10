@@ -9,7 +9,6 @@ import { ModalProduct } from "../ui/ModalProduct";
 import Modal from "react-modal";
 import useModal from "./useModal";
 import { ModalForm } from "../ui/ModalForm";
-import { PropsProduct } from "./helpers";
 
 interface Product {
   id: number;

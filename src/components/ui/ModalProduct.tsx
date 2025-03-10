@@ -6,7 +6,6 @@ import Modal from "react-modal";
 import { ModalForm } from "./ModalForm";
 import useModal from "../shared/useModal";
 
-// Динамический импорт данных для продукта
 const importProductData = (productId: number) => {
   switch (productId) {
     case 1:
