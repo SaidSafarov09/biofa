@@ -7,21 +7,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import Modal from "react-modal";
 import { ModalForm } from "../ui/ModalForm";
 import Link from "next/link";
+import useModal from "./useModal";
 
 export const Footer = () => {
   const phone = "+7 (953) 998-23-36";
   const email = "biofa116@gmail.com";
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-    document.body.style.overflow = "hidden";
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    document.body.style.overflow = "auto";
-  };
+  const { isModalOpen, openModal, closeModal } = useModal();
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -95,6 +86,7 @@ export const Footer = () => {
             ></iframe>
           </div>
         </motion.div>
+        <div className="w-full h-[1px] bg-[#AAAAAA]"/>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

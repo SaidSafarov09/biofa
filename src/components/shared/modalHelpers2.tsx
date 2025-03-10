@@ -20,18 +20,17 @@ type CommonInfo = {
 };
 
 export const commonInfo: CommonInfo = {
-  title: "Наружный фасад (срубы и брусы)",
-  subtitle: "Защита по трехслойной системе", 
-  titleImg: "/layer3.svg", 
+  title: "Внутренняя отделка (стены и потолок)",
+  subtitle: "Защита по двухслойной системе", 
+  titleImg: "/layer2.svg", 
 };
 
 export const modalContent: Props[] = [
   {
-    img: "/modalImg1.png",
-    head: "Biofa 2043",
+    img: "/modal2Img1.png",
+    head: "Biofa 2044",
     optionsLeft: (
       <>
-        <p>Материал поверхности</p>
         <p>Степень блеска</p>
         <p>Моющееся покрытие</p>
         <p>Колеруется</p>
@@ -42,12 +41,11 @@ export const modalContent: Props[] = [
     ),
     optionsRight: (
       <>
-        <p>древесина</p>
         <p>шелковисто-матовый</p>
         <p>да</p>
         <p>колеруется</p>
-        <p>да</p>
-        <p>20-15 кв. м/л</p>
+        <p>нет</p>
+        <p>16-10 кв. м/л</p>
         <p>16-24 часа</p>
       </>
     ),
@@ -59,49 +57,17 @@ export const modalContent: Props[] = [
     ],
   },
   {
-    img: "/modalImg2.png",
-    head: "Biofa 2043 Матовая",
+    img: "/modal2Img2.png",
+    head: "Biofa 1075",
     optionsLeft: (
       <>
-        <p>Материал поверхности</p>
         <p>Степень блеска</p>
         <p>Моющееся покрытие</p>
         <p>Колеруется</p>
         <p>Содержание антисептика</p>
         <p>Расход в 2 слоя</p>
         <p>Время высыхания</p>
-      </>
-    ),
-    optionsRight: (
-      <>
-        <p>древесина</p>
-        <p>матовый</p>
-        <p>да</p>
-        <p>колеруется</p>
-        <p>да</p>
-        <p>20-15 кв. м/л</p>
-        <p>16-24 часа</p>
-      </>
-    ),
-    volumePrice: [
-      { volume: "0.4 л", price: "1903 ₽" },
-      { volume: "1 л", price: "5130 ₽" },
-      { volume: "2.5 л", price: "11663 ₽" },
-      { volume: "10 л", price: "41244 ₽" },
-    ],
-  },
-  {
-    img: "/modalImg3.png",
-    head: "Biofa 1075",
-    optionsLeft: (
-      <>
-        <p>Степень блеска</p>
-        <p>Моющее покрытие</p>
-        <p>Колеруется</p>
-        <p>Содержание антисептика</p>
-        <p>Расход в 2 слоя</p>
-        <p>Время высыхания</p>
-        <p>Уход за окрашенной<br/> поверхностью</p>
+        <p>Уход за окрашенной<br/>поверхностью</p>
       </>
     ),
     optionsRight: (
@@ -112,9 +78,7 @@ export const modalContent: Props[] = [
         <p>нет</p>
         <p>16-10 кв. м/л</p>
         <p>12-16 часов</p>
-        <p>
-          BIOFA 4010, 4020. Восковые<br/> уходовые продукты BIOFA<br/> 2085, 4030, 5076
-        </p>
+        <p>BIOFA 4010, 4020. Восковые<br/>уходовые продукты BIOFA<br/>2085, 4030, 5076</p>
       </>
     ),
     volumePrice: [
@@ -124,9 +88,8 @@ export const modalContent: Props[] = [
       { volume: "10 л", price: "27947 ₽" },
     ],
   },
-
   {
-    img: "/modalImg4.png",
+    img: "/modal2Img3.png",
     head: "Biofa 5075",
     optionsLeft: (
       <>
@@ -144,7 +107,7 @@ export const modalContent: Props[] = [
         <p>полуматовый</p>
         <p>колеруется</p>
         <p>да</p>
-        <p>1 л на 7 м² или 140-150 мл/м²</p>
+        <p>1 литр на 7 м2 или 140-150 мл/м2</p>
         <p>16-24 часа</p>
       </>
     ),
@@ -153,36 +116,6 @@ export const modalContent: Props[] = [
       { volume: "1 л", price: "2211 ₽" },
       { volume: "2.5 л", price: "5434 ₽" },
       { volume: "10 л", price: "21132 ₽" },
-    ],
-  },
-  {
-    img: "/modalImg5.png",
-    head: "Biofa 8405",
-    optionsLeft: (
-      <>
-        <p>Назначение</p>
-        <p>Материал поверхности</p>
-        <p>Степень блеска</p>
-        <p>Колеруется</p>
-        <p>Расход в 2 слоя</p>
-        <p>Время высыхания</p>
-      </>
-    ),
-    optionsRight: (
-      <>
-        <p>для торцов</p>
-        <p>древесина</p>
-        <p>полуглянцевый</p>
-        <p>колеруется</p>
-        <p>3 м²/л</p>
-        <p>6 часов</p>
-      </>
-    ),
-    volumePrice: [
-      { volume: "0.4 л", price: "1260 ₽" },
-      { volume: "1 л", price: "3318 ₽" },
-      { volume: "2.5 л", price: "8106 ₽" },
-      { volume: "10 л", price: "31878 ₽" },
     ],
   },
 ];

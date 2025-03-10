@@ -7,7 +7,7 @@ type PropsCardData = {
   image: string;
 };
 
-type PropsProduct = {
+export type PropsProduct = {
   id: number;
   cardMainText?: ReactElement;
   cardSubText?: ReactElement;

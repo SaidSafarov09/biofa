@@ -47,7 +47,7 @@ export const About = () => {
         </div>
         <Button
           text="Заказать покраску"
-          className="text-base px-5 py-4 l:!text-[20px] leading-[20px] font-semibold l:px-6 l:py-[18px] m:w-[230px] xl:w-[520px] h-max"
+          className="text-base px-5 py-4 l:!text-[20px] leading-[20px] font-semibold l:px-6 l:py-[18px] m:w-[240px] xl:w-[520px] h-max"
           variant="first"
           onClick={() => window.location.href = 'https://germetdom.ru'}
         />
@@ -90,7 +90,7 @@ export const About = () => {
             />
             <div className="flex gap-3 l:gap-6 mt-8 l:mt-6">
               <div className="w-5 l:w-[25px] h-[1px] bg-[#1C9D74] mt-3" />
-              <p className="xl:leading-[26px] xl:text-[20px] l:text-[14px] l:leading-[22px] text-[14px] leading-[21px]">
+              <p className="xl:leading-[26px] xl:text-[20px] l:text-[14px] l:leading-[22px] text-[14px] leading-[21px] m:w-[240px] xl:w-[320px]">
                 Сафиуллин Адель, совладелец и<br /> технолог компании
                 «Герметдом»
               </p>

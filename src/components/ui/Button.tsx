@@ -11,15 +11,28 @@ type Props = {
   variant?: "first" | "second";
   asChild?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  id?: any;
 };
 
 const Button = React.forwardRef<HTMLButtonElement, Props>(
-  ({ className, text, variant = "first", asChild = false, onClick, ...props }, ref) => {
-    const Comp = asChild ? "span" : "button"; 
+  (
+    {
+      className,
+      text,
+      variant = "first",
+      id,
+      asChild = false,
+      onClick,
+      ...props
+    },
+    ref
+  ) => {
+    const Comp = asChild ? "span" : "button";
     const variantClasses = buttonVariants[variant];
 
     return (
       <Comp
+        id={id}
         className={`
           ${variantClasses} 
           ${className} 

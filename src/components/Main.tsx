@@ -6,20 +6,11 @@ import { Button } from "./ui/Button";
 import { InputBanner } from "./shared/inputBanner";
 import Modal from "react-modal";
 import { ModalForm } from "./ui/ModalForm";
+import useModal from "./shared/useModal";
 
 export const Main = () => {
   const phone = "+7 (953) 998-23-36";
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-    document.body.style.overflow = "hidden";
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    document.body.style.overflow = "auto";
-  };
+  const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
     <motion.div
@@ -42,7 +33,7 @@ export const Main = () => {
             height={38}
             className="xl:w-[200px] xl:h-[38px] w-[184px] h-[34px]"
           />
-          <p className="text-sm xl:text-base font-medium leading-[20px] text-[#33282C]">
+          <p className="text-base xl:text-[18px] font-medium leading-[20px] text-[#33282C]">
             Фирменный магазин красок и<br /> масел для дерева в городе Казани
           </p>
         </div>
@@ -72,7 +63,7 @@ export const Main = () => {
           className="px-[15px] l:px-2.5 xl:px-20 mt-[30px] l:mt-9 w-full"
         >
           <div
-            className="w-full h-[620px] rounded-[32px] pt-8  px-[10px] m:pt-[44px] m:pl-[15px] m:pr-[unset] l:pl-5 l:pt-20 xl:pl-[60px]"
+            className="w-full h-[620px] rounded-[32px] pt-8  px-[10px] m:pt-[38px] m:pl-[15px] m:pr-[unset] l:pl-5 l:pt-16 xl:pl-[60px]"
             style={{
               backgroundImage: "url('banner.png')",
               backgroundSize: "cover",

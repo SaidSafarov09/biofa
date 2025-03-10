@@ -104,7 +104,7 @@ export const InputBanner = ({ className }: Props) => {
         />
         <Button
           text={buttonText}
-          className={`px-4 py-2.5 h-10 ${error ? "bg-[#f73636] hover:bg-[#f73636]" : ""}`}
+          className={`px-4 py-2.5 h-10 ${error ? "bg-[#f73636] hover:!bg-[#f73636]" : ""}`}
           variant="second"
           onClick={handleSubmit}
         />
