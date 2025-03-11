@@ -7,6 +7,7 @@ type VolumePrice = {
 
 type Props = {
   img?: string;
+  imgHover?: string;
   head: string;
   optionsLeft?: ReactElement;
   optionsRight?: ReactElement;
@@ -28,6 +29,7 @@ export const commonInfo: CommonInfo = {
 export const modalContent: Props[] = [
   {
     img: "/modal3Img1.png",
+    imgHover: "/modal3Img1_bw.png",
     head: "Biofa 9032",
     optionsLeft: (
       <>
@@ -60,6 +62,7 @@ export const modalContent: Props[] = [
   },
   {
     img: "/modal3Img2.png",
+    imgHover: "/modal3Img2_bw.png",
     head: "Biofa 8500",
     optionsLeft: (
         <>

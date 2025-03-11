@@ -7,6 +7,7 @@ type VolumePrice = {
 
 type Props = {
   img?: string;
+  imgHover?: string;
   head: string;
   optionsLeft?: ReactElement;
   optionsRight?: ReactElement;
@@ -28,6 +29,7 @@ export const commonInfo: CommonInfo = {
 export const modalContent: Props[] = [
   {
     img: "/modalImg1.png",
+    imgHover: "/modalImg1_bw.png",
     head: "Biofa 2043",
     optionsLeft: (
       <>
@@ -60,6 +62,7 @@ export const modalContent: Props[] = [
   },
   {
     img: "/modalImg2.png",
+    imgHover: "/modalImg2_bw.png",
     head: "Biofa 2043 Матовая",
     optionsLeft: (
       <>
@@ -92,6 +95,7 @@ export const modalContent: Props[] = [
   },
   {
     img: "/modalImg3.png",
+    imgHover: "/modalImg3_bw.png",
     head: "Biofa 1075",
     optionsLeft: (
       <>
@@ -127,6 +131,7 @@ export const modalContent: Props[] = [
 
   {
     img: "/modalImg4.png",
+    imgHover: "/modalImg4_bw.png",
     head: "Biofa 5075",
     optionsLeft: (
       <>
@@ -157,6 +162,7 @@ export const modalContent: Props[] = [
   },
   {
     img: "/modalImg5.png",
+    imgHover: "/modalImg5_bw.png",
     head: "Biofa 8405",
     optionsLeft: (
       <>

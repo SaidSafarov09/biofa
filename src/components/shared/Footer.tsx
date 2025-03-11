@@ -13,7 +13,7 @@ export const Footer = () => {
   const email = "biofa116@gmail.com";
   const { isModalOpen, openModal, closeModal } = useModal();
   return (
-    <div className="px-[30px] xl:px-[140px] py-[60px] l:py-20">
+    <div className="px-[30px] pb-9 xl:px-[140px] pt-[60px] l:pt-20">
       <div className="flex flex-col gap-y-10 l:gap-y-20">
         <div className="flex justify-center gap-x-5 xl:gap-x-10 flex-col m:flex-row">
           <div className="flex flex-col gap-y-10 l:gap-y-12">
@@ -67,14 +67,16 @@ export const Footer = () => {
           <div className="hidden m:block">
             <iframe
               className="rounded-[18px] xl:w-[760px] xl:h-[432px] l:w-[517px] m:h-full m:w-[260px] w-full h-[260px]"
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3A03aa25e5ea0e1575e27b32a61086df62d9a5962170a937dc9636a919f94053aa&amp;source=constructor"
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3A7fa101932b9c16cd32e7798a2b1e428991fd85ebc330dad5d96b1faca28bf423&amp;source=constructor"
               width="760"
               height="390"
             ></iframe>
           </div>
         </div>
         <div className="w-full h-[1px] bg-[#AAAAAA]" />
-        <div className="flex flex-col m:flex-row justify-between l:justify-center w-full items-center l:gap-x-[60px] xl:gap-x-[125px]">
+      </div>
+
+      <div className="flex flex-col m:flex-row justify-between l:justify-center w-full items-center l:gap-x-[60px] xl:gap-x-[125px] mt-9">
           <div className="flex flex-col l:flex-row l:items-center gap-y-10 m:gap-y-4 l:w-full l:gap-x-[60px] xl:gap-x-[125px]">
             <Image src="/Logo.svg" alt="logo" width={224} height={40} />
             <div className="m:hidden items-center flex flex-col gap-y-4">
@@ -151,7 +153,6 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}

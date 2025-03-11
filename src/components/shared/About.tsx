@@ -4,8 +4,13 @@ import React from "react";
 import { Button } from "../ui/Button";
 import Image from "next/image";
 import { aboutData } from "./helpers";
+import useModal from "./useModal";
+import { AnimatePresence } from "framer-motion";
+import { ModalForm } from "../ui/ModalForm";
+import Modal from "react-modal";
 
 export const About = () => {
+  const { isModalOpen, openModal, closeModal } = useModal();
   return (
     <div className="px-[30px] xl:px-[140px] py-[30px] l:py-20">
       <div className="flex justify-between flex-col gap-y-10 m:gap-y-0 m:flex-row l:items-center">
@@ -36,7 +41,7 @@ export const About = () => {
           text="Заказать покраску"
           className="text-base px-5 py-4 l:!text-[20px] leading-[20px] font-semibold l:px-6 l:py-[18px] m:w-[240px] xl:w-[520px] h-max"
           variant="first"
-          onClick={() => window.location.href = 'https://germetdom.ru'}
+          onClick={openModal}
         />
       </div>
 
@@ -124,6 +129,17 @@ export const About = () => {
           </div>
         ))}
       </div>
+      <AnimatePresence>
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          ariaHideApp={false}
+          className="w-[300px] m-auto bg-white rounded-[24px] shadow-lg"
+          overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
+        >
+          <ModalForm closeModal={closeModal} />
+        </Modal>
+      </AnimatePresence>
     </div>
   );
 };

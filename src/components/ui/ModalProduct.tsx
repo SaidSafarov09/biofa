@@ -33,7 +33,15 @@ type Props = {
 export const ModalProduct = ({ closeModalProduct, productId }: Props) => {
   const { isModalOpen, openModal, closeModal } = useModal();
   const [modalData, setModalData] = useState<any>(null);
+  const [hoveredStates, setHoveredStates] = useState<{ [key: number]: boolean }>({});
 
+  const handleMouseEnter = (index: any) => {
+    setHoveredStates(prev => ({ ...prev, [index]: true }));
+  };
+
+  const handleMouseLeave = (index: any) => {
+    setHoveredStates(prev => ({ ...prev, [index]: false }));
+  };
   useEffect(() => {
     const fetchProductData = async () => {
       const { commonInfo, modalContent } = await importProductData(productId);
@@ -69,7 +77,12 @@ export const ModalProduct = ({ closeModalProduct, productId }: Props) => {
             {modalData.commonInfo.subtitle}
           </p>
         </div>
-        <Image src={modalData.commonInfo.titleImg} width={52} height={52} alt="layer" />
+        <Image
+          src={modalData.commonInfo.titleImg}
+          width={52}
+          height={52}
+          alt="layer"
+        />
       </div>
       <div className="relative z-[100] flex overflow-y-auto max-h-[60vh] m:max-h-[70vh] flex-wrap gap-2.5 m:gap-[20px] l:gap-[45px] m:px-[10px] l:px-[27px] xl:p-0 justify-center l:justify-start">
         {modalData.modalContent.map((content: any, index: any) => (
@@ -78,12 +91,18 @@ export const ModalProduct = ({ closeModalProduct, productId }: Props) => {
             className="flex flex-col items-center bg-[#F9F9F9] rounded-[12px] px-4 py-6 justify-between l:w-[300px] h-[578px]"
           >
             {content.img && (
-              <Image
-                src={content.img}
-                alt={content.head}
-                width={132}
-                height={132}
-              />
+              <div
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
+              >
+                <Image
+                  src={hoveredStates[index] ? content.imgHover : content.img}
+                  alt={content.head}
+                  width={132}
+                  height={132}
+                  className="transition-opacity duration-1000 ease-in-out"
+                />
+              </div>
             )}
             <p className="text-[#1C9D74] font-semibold text-[20px]">
               {content.head}
