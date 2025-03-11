@@ -1,30 +1,20 @@
 "use client";
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "./ui/Button";
 import { InputBanner } from "./shared/inputBanner";
 import Modal from "react-modal";
 import { ModalForm } from "./ui/ModalForm";
 import useModal from "./shared/useModal";
+import { AnimatePresence } from "framer-motion";
 
 export const Main = () => {
   const phone = "+7 (953) 998-23-36";
   const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="my-12 w-full justify-center flex flex-col items-center"
-    >
-      <motion.div
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="w-full flex flex-col m:flex-row m:justify-between l:justify-center xl:gap-x-[140px] px-[30px] l:px-0 xl:mx-[140px] l:gap-x-10 gap-y-6 m:gap-y-0"
-      >
+    <div className="my-12 w-full justify-center flex flex-col items-center">
+      <div className="w-full flex flex-col m:flex-row m:justify-between l:justify-center xl:gap-x-[140px] px-[30px] l:px-0 xl:mx-[140px] l:gap-x-10 gap-y-6 m:gap-y-0">
         <div className="flex l:gap-8 l:flex-row flex-col gap-y-6 l:gap-y-0 l:items-center xl:gap-x-10">
           <Image
             src="/Logo.svg"
@@ -53,13 +43,10 @@ export const Main = () => {
             </a>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <div className="relative flex justify-center w-full">
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
+        <div
           className="px-[15px] l:px-2.5 xl:px-20 mt-[30px] l:mt-9 w-full"
         >
           <div
@@ -70,12 +57,7 @@ export const Main = () => {
               backgroundPosition: "center center",
             }}
           >
-            <motion.div
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="flex flex-col gap-y-6 l:gap-y-8 "
-            >
+            <div className="flex flex-col gap-y-6 l:gap-y-8">
               <p className="font-bold text-[32px] leading-10  m:text-[40px] xl:text-[48px] text-white m:leading-[50px] xl:leading-[60px]">
                 Немецкие масла
                 <br className="l:hidden" /> для дерева Biofa
@@ -86,11 +68,12 @@ export const Main = () => {
                 <br className="hidden l:block" /> и проверено на практике
                 <br className="l:hidden" /> более 10 лет
               </p>
-            </motion.div>
+            </div>
             <InputBanner className="mt-8 l:mt-20 flex justify-center" />
           </div>
-        </motion.div>
+        </div>
       </div>
+
       <AnimatePresence>
         <Modal
           isOpen={isModalOpen}
@@ -102,6 +85,6 @@ export const Main = () => {
           <ModalForm closeModal={closeModal} />
         </Modal>
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { productData } from "./helpers";
 import { Button } from "../ui/Button";
 import Image from "next/image";
@@ -18,7 +18,6 @@ interface Product {
   price: any;
   bgImg: any;
 }
-
 
 export const ProductView = () => {
   const [isModalProductOpen, setIsModalOpen] = useState(false);
@@ -38,43 +37,17 @@ export const ProductView = () => {
   const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 1 }}
-      className="bg-[#EEEEEE] mt-[60px] m:mt-[50px] px-[30px] xl:px-[140px] py-[60px] l:py-[80px]"
-    >
-      <motion.p
-        initial={{ y: -50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8 }}
-        className="text-[#9D1C45] font-semibold text-[30px] leading-[37.5px] m:text-[32px] m:leading-10 l:text-[36px] l:leading-[45px]"
-      >
+    <div className="bg-[#EEEEEE] mt-[60px] m:mt-[50px] px-[30px] xl:px-[140px] py-[60px] l:py-[80px]">
+      <p className="text-[#9D1C45] font-semibold text-[30px] leading-[37.5px] m:text-[32px] m:leading-10 l:text-[36px] l:leading-[45px]">
         Для каких видов работ используется наш продукт
-      </motion.p>
+      </p>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="flex flex-col m:grid m:grid-cols-2 m:grid-rows-3 l:grid-cols-3 l:grid-rows-2 gap-5 xl:gap-10 mt-12"
-      >
+      <div className="flex flex-col m:grid m:grid-cols-2 m:grid-rows-3 l:grid-cols-3 l:grid-rows-2 gap-5 xl:gap-10 mt-12">
         {productData.map(
           (
-            { id, cardMainText, cardSubText, priceMedium, price, bgImg },
-            index
+            { id, cardMainText, cardSubText, priceMedium, price, bgImg }
           ) => (
-            <motion.div
-              key={id}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 1, delay: index * 0.2 }}
-              className="cursor-pointer"
-            >
+            <div key={id} className="cursor-pointer">
               <div className="relative min-w-[300px] min-h-[360px] m:min-w-[260px] m:min-h-[380px] l:min-w-[287px] l:min-h-[425px] xl:min-w-[360px] xl:h-[520px]">
                 {bgImg && (
                   <Image
@@ -121,10 +94,11 @@ export const ProductView = () => {
                   }
                 />
               </div>
-            </motion.div>
+            </div>
           )
         )}
-      </motion.div>
+      </div>
+
       <AnimatePresence>
         <Modal
           isOpen={isModalProductOpen}
@@ -134,9 +108,13 @@ export const ProductView = () => {
           className="relative z-[100] py-[30px] px-5  m:px-[30] l:px-[43px] l:py-10 xl:p-10 bg-white rounded-lg mx-auto w-[320px] m:w-[540px] l:w-[786px] xl:w-[1070px]"
           overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
         >
-          <ModalProduct closeModalProduct={closeModalProduct} productId={selectedProduct ? selectedProduct.id : 0}/>
+          <ModalProduct
+            closeModalProduct={closeModalProduct}
+            productId={selectedProduct ? selectedProduct.id : 0}
+          />
         </Modal>
       </AnimatePresence>
+
       <AnimatePresence>
         <Modal
           isOpen={isModalOpen}
@@ -149,6 +127,6 @@ export const ProductView = () => {
           <ModalForm closeModal={closeModal} />
         </Modal>
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };

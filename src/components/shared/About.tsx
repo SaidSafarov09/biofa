@@ -1,27 +1,14 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { Button } from "../ui/Button";
 import Image from "next/image";
 import { aboutData } from "./helpers";
 
 export const About = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 1 }}
-      className="px-[30px] xl:px-[140px] py-[30px] l:py-20"
-    >
-      <motion.div
-        initial={{ y: -50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8 }}
-        className="flex justify-between flex-col gap-y-10 m:gap-y-0 m:flex-row l:items-center"
-      >
+    <div className="px-[30px] xl:px-[140px] py-[30px] l:py-20">
+      <div className="flex justify-between flex-col gap-y-10 m:gap-y-0 m:flex-row l:items-center">
         <div className="text-start text-[#9D1C45] xl:w-full text-[30px] leading-[37.5px] m:text-[24px] m:leading-[30px] l:text-[32px] l:leading-10 font-semibold">
           Наш продукт
           <br />
@@ -51,17 +38,11 @@ export const About = () => {
           variant="first"
           onClick={() => window.location.href = 'https://germetdom.ru'}
         />
-      </motion.div>
+      </div>
 
       <div className="w-full flex justify-center">
         <div className="mt-10 flex m:gap-x-5 xl:gap-x-10 justify-center w-full m:w-[540px] l:w-max flex-col-reverse m:flex-row">
-          <motion.div
-            initial={{ x: -50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1 }}
-            className="l:min-w-[288px] l:w-full"
-          >
+          <div className="l:min-w-[288px] l:w-full">
             <div className="hidden m:flex xl:hidden gap-x-5 mb-4">
               <div className="flex gap-2 xl:gap-4">
                 <Image src="/geo.svg" alt="geo" width={18} height={18} />
@@ -95,15 +76,9 @@ export const About = () => {
                 «Герметдом»
               </p>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ x: 50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1 }}
-            className="flex flex-col items-start"
-          >
+          <div className="flex flex-col items-start">
             <p className="m:w-[260px] l:w-[593px] xl:w-[760px] text-[14px] leading-[18px] xl:text-[20px] xl:leading-[28px] l:text-[18px] l:leading-[24.5px]">
               Компания «Герметдом» занимается герметизацией, шлифовкой и
               покраской деревянных сооружений по РТ и ближайшим регионам с 2014
@@ -123,15 +98,8 @@ export const About = () => {
               объекты, на которых использовался данный продукт.
             </p>
             <div className="hidden l:flex justify-between w-full mt-6">
-              {aboutData.map(({ id, head, sub }, index) => (
-                <motion.div
-                  key={id}
-                  initial={{ y: 50, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 1, delay: index * 0.2 }}
-                  className="flex flex-col gap-4"
-                >
+              {aboutData.map(({ id, head, sub }) => (
+                <div key={id} className="flex flex-col gap-4">
                   <div className="text-[#9D1C45] xl:leading-[54px] xl:text-[54px] l:text-[45px] l:leading-[45px] font-semibold">
                     {head}
                   </div>
@@ -139,30 +107,23 @@ export const About = () => {
                     {sub}
                   </p>
                   <div className="w-15 h-[0.5px] bg-[#777777]" />
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
       <div className="grid grid-cols-2 grid-rows-2 gap-y-10 m:gap-y-0 gap-x-5 m:gap-x-0 m:flex justify-between w-full mt-6 l:hidden">
-        {aboutData.map(({ id, head, sub }, index) => (
-          <motion.div
-            key={id}
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1, delay: index * 0.2 }}
-            className="flex flex-col gap-4"
-          >
+        {aboutData.map(({ id, head, sub }) => (
+          <div key={id} className="flex flex-col gap-4">
             <div className="text-[#9D1C45] text-[44px] leading-10 font-semibold">
               {head}
             </div>
             <p className="text-base leading-5 text-[#33282C]">{sub}</p>
             <div className="w-[60px] h-[0.5px] bg-[#777777]" />
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };

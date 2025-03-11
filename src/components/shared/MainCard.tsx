@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { cardData } from "./helpers";
-import { motion } from "framer-motion";
 
 type Props = {
   className?: string;
@@ -9,12 +8,7 @@ type Props = {
 
 export const MainCard = ({ className }: Props) => {
   return (
-    <motion.div
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1, delay: 0.7 }}
-      className="flex justify-center w-full relative mt-[-65px] m:mt-[-75px] l:mt-[-105px] xl:mt-[-125px]"
-    >
+    <div className="flex justify-center w-full relative mt-[-65px] m:mt-[-75px] l:mt-[-105px] xl:mt-[-125px]">
       <div
         className={`${className} grid grid-rows-4 grid-cols-1 m:grid-rows-2 m:grid-cols-2 l:flex justify-between gap-5 xl:gap-10`}
       >
@@ -43,6 +37,6 @@ export const MainCard = ({ className }: Props) => {
           </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };

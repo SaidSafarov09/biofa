@@ -3,7 +3,6 @@
 import React from "react";
 import { Button } from "../ui/Button";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
 import Modal from "react-modal";
 import { ModalForm } from "../ui/ModalForm";
 import Link from "next/link";
@@ -14,21 +13,9 @@ export const Footer = () => {
   const email = "biofa116@gmail.com";
   const { isModalOpen, openModal, closeModal } = useModal();
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="px-[30px] xl:px-[140px] py-[60px] l:py-20"
-    >
+    <div className="px-[30px] xl:px-[140px] py-[60px] l:py-20">
       <div className="flex flex-col gap-y-10 l:gap-y-20">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="flex justify-center gap-x-5 xl:gap-x-10 flex-col m:flex-row"
-        >
+        <div className="flex justify-center gap-x-5 xl:gap-x-10 flex-col m:flex-row">
           <div className="flex flex-col gap-y-10 l:gap-y-12">
             <p className="font-semibold text-[32px] leading-10 text-[#9D1C45]">
               Где мы находимся?
@@ -85,15 +72,9 @@ export const Footer = () => {
               height="390"
             ></iframe>
           </div>
-        </motion.div>
-        <div className="w-full h-[1px] bg-[#AAAAAA]"/>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="flex flex-col m:flex-row justify-between l:justify-center w-full items-center l:gap-x-[60px] xl:gap-x-[125px]"
-        >
+        </div>
+        <div className="w-full h-[1px] bg-[#AAAAAA]" />
+        <div className="flex flex-col m:flex-row justify-between l:justify-center w-full items-center l:gap-x-[60px] xl:gap-x-[125px]">
           <div className="flex flex-col l:flex-row l:items-center gap-y-10 m:gap-y-4 l:w-full l:gap-x-[60px] xl:gap-x-[125px]">
             <Image src="/Logo.svg" alt="logo" width={224} height={40} />
             <div className="m:hidden items-center flex flex-col gap-y-4">
@@ -169,20 +150,18 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
-      <AnimatePresence>
-        <Modal
-          isOpen={isModalOpen}
-          onRequestClose={closeModal}
-          ariaHideApp={false}
-          contentLabel="Заказать покраску"
-          className="w-[300px] m-auto bg-white rounded-[24px] shadow-lg"
-          overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
-        >
-          <ModalForm closeModal={closeModal} />
-        </Modal>
-      </AnimatePresence>
-    </motion.div>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        ariaHideApp={false}
+        contentLabel="Заказать покраску"
+        className="w-[300px] m-auto bg-white rounded-[24px] shadow-lg"
+        overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center"
+      >
+        <ModalForm closeModal={closeModal} />
+      </Modal>
+    </div>
   );
 };

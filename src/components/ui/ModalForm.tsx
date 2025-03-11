@@ -26,7 +26,7 @@ export const ModalForm = ({ closeModal }: Props) => {
     setError(null);
 
     try {
-      const response = await fetch("https://formspree.io/f/manewnyz", {
+      const response = await fetch("https://formspree.io/f/mkgjnbkn", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
