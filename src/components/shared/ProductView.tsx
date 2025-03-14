@@ -35,7 +35,7 @@ export const ProductView = () => {
     document.body.style.overflow = "auto";
   };
 
-  const { isModalOpen, openModal, closeModal } = useModal();
+  const { isModalOpen, closeModal } = useModal();
 
   return (
     <div className="bg-[#EEEEEE] mt-[60px] m:mt-[50px] px-[30px] xl:px-[140px] py-[60px] l:py-[80px]">
