@@ -17,6 +17,7 @@ interface Product {
   priceMedium: any;
   price: any;
   bgImg: any;
+  bgHover: any;
 }
 
 export const ProductView = () => {
@@ -44,20 +45,34 @@ export const ProductView = () => {
 
       <div className="flex flex-col m:grid m:grid-cols-2 m:grid-rows-3 l:grid-cols-3 l:grid-rows-2 gap-5 xl:gap-10 mt-12">
         {productData.map(
-          (
-            { id, cardMainText, cardSubText, priceMedium, price, bgImg }
-          ) => (
+          ({
+            id,
+            cardMainText,
+            cardSubText,
+            priceMedium,
+            price,
+            bgImg,
+            bgHover,
+          }) => (
             <div key={id} className="cursor-pointer">
               <div className="relative min-w-[300px] min-h-[360px] m:min-w-[260px] m:min-h-[380px] l:min-w-[287px] l:min-h-[425px] xl:min-w-[360px] xl:h-[520px]">
                 {bgImg && (
-                  <Image
-                    src={bgImg}
-                    alt="cardImg"
-                    layout="fill"
-                    objectFit="cover"
-                    className="absolute rounded-[12px]"
-                    onClick={openModal}
-                  />
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={bgImg}
+                      alt="cardImg"
+                      layout="fill"
+                      objectFit="cover"
+                      className="absolute rounded-[12px] transition-all duration-500 ease-in-out hover:opacity-0"
+                    />
+                    <Image
+                      src={bgHover}
+                      alt="hoverImg"
+                      layout="fill"
+                      objectFit="cover"
+                      className="absolute rounded-[12px] transition-all duration-500 ease-in-out opacity-0 hover:opacity-100"
+                    />
+                  </div>
                 )}
                 <div className="absolute bottom-0 left-0 p-[18px] l:p-6 xl:p-8 flex flex-col gap-4">
                   <p className="text-white text-[18px] leading-[22.5px] l:text-[20px] l:leading-[25px] xl:text-[24px] xl:leading-[30px] font-semibold">
@@ -90,6 +105,7 @@ export const ProductView = () => {
                       priceMedium,
                       price,
                       bgImg,
+                      bgHover,
                     })
                   }
                 />

@@ -24,9 +24,7 @@ const images = [
   "/Img14.jpeg",
   "/Img15.jpeg",
   "/Img16.jpeg",
-  "/Img17.jpeg",
   "/Img18.jpeg",
-  "/Img19.jpeg",
 ];
 
 const images2 = [
@@ -35,7 +33,6 @@ const images2 = [
   "/Img22.jpeg",
   "/Img23.jpeg",
   "/Img24.jpeg",
-  "/Img25.jpeg",
   "/Img26.jpeg",
   "/Img27.jpeg",
   "/Img28.jpeg",
@@ -53,21 +50,39 @@ const images2 = [
 export const Slider = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const openModal = (src: string) => {
+  const allImages = [...images, ...images2];
+  const openModal = (src: string, index: number) => {
     setSelectedImage(src);
+    setCurrentIndex(index);
     setIsModalOpen(true);
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedImage(null);
+    setCurrentIndex(0);
+    document.body.style.overflow = "auto";
   };
 
   const handleModalClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
+  };
+
+  const prevImage = () => {
+    const prevIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+    setCurrentIndex(prevIndex);
+    setSelectedImage(allImages[prevIndex]);
+  };
+
+  const nextImage = () => {
+    const nextIndex = (currentIndex + 1) % allImages.length;
+    setCurrentIndex(nextIndex);
+    setSelectedImage(allImages[nextIndex]);
   };
 
   return (
@@ -92,8 +107,9 @@ export const Slider = () => {
         >
           {images.map((src, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full mx-0 h-64 md:h-80 rounded-lg overflow-hidden shadow-xl transition transform scale-90 hover:scale-100"
-              onClick={() => openModal(src)}
+              <div
+                className="relative w-full mx-0 h-64 md:h-80 rounded-lg overflow-hidden shadow-xl transition transform scale-90 hover:scale-100"
+                onClick={() => openModal(src, index)}
               >
                 <Image
                   src={src}
@@ -120,8 +136,9 @@ export const Slider = () => {
         >
           {images2.map((src, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-xl transition transform scale-90 hover:scale-100"
-              onClick={() => openModal(src)}
+              <div
+                className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-xl transition transform scale-90 hover:scale-100"
+                onClick={() => openModal(src, index)}
               >
                 <Image
                   src={src}
@@ -134,21 +151,35 @@ export const Slider = () => {
           ))}
         </Swiper>
       </div>
+
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50"
-        onClick={handleModalClick}
+        <div
+          className="fixed inset-0 bg-black/60 flex justify-center items-center z-50"
+          onClick={handleModalClick}
         >
           <div className="relative max-w-[90%] max-h-[90%]">
             <img
               src={selectedImage || ""}
               alt="Selected"
-              className="w-full h-auto object-contain"
+              className="w-[290px] h-auto object-contain  m:w-[400px] xl:h-auto"
             />
             <button
               className="absolute top-[-32px] right-0 text-white text-xl"
               onClick={closeModal}
             >
-              <Image src="/close.svg" width={24} height={24} alt="close"/>
+              <Image src="/close.svg" width={24} height={24} alt="close" />
+            </button>
+            <button
+              className="absolute left-[-40px] top-[50%] transform -translate-y-[50%] text-white text-3xl"
+              onClick={prevImage}
+            >
+              &lt;
+            </button>
+            <button
+              className="absolute right-[-40px] top-[50%] transform -translate-y-[50%] text-white text-3xl"
+              onClick={nextImage}
+            >
+              &gt;
             </button>
           </div>
         </div>

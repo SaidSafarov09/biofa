@@ -70,7 +70,7 @@ export const ModalForm = ({ closeModal }: Props) => {
     >
       {!isSubmitted && !hasError && (
         <p className="text-[#9D1C45] text-[20px] font-semibold">
-          Закажите звонок
+          Оставьте свои данные
         </p>
       )}
 

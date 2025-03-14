@@ -10,7 +10,7 @@ import useModal from "./useModal";
 
 export const Footer = () => {
   const phone = "+7 (953) 998-23-36";
-  const email = "biofa116@gmail.com";
+  const email = "germetdom@gmail.com";
   const { isModalOpen, openModal, closeModal } = useModal();
   return (
     <div className="px-[30px] pb-9 xl:px-[140px] pt-[60px] l:pt-20">
@@ -67,7 +67,7 @@ export const Footer = () => {
           <div className="hidden m:block">
             <iframe
               className="rounded-[18px] xl:w-[760px] xl:h-[432px] l:w-[517px] m:h-full m:w-[260px] w-full h-[260px]"
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3A7fa101932b9c16cd32e7798a2b1e428991fd85ebc330dad5d96b1faca28bf423&amp;source=constructor"
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3Add448b5fe8d4f0e5e25de578ee656c95b9e98e94e21734427fef998b2206f183&amp;source=constructor"
               width="760"
               height="390"
             ></iframe>

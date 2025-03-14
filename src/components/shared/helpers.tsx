@@ -14,6 +14,7 @@ export type PropsProduct = {
   priceMedium?: string;
   price?: ReactElement;
   bgImg?: string;
+  bgHover: string;
 };
 
 type PropsAbout = {
@@ -80,6 +81,7 @@ export const productData: PropsProduct[] = [
     priceMedium: "Средний Расчет",
     price: <>430 ₽ / м²</>,
     bgImg: "/card1.png",
+    bgHover: "/Card1_bw.jpg"
   },
   {
     id: 2,
@@ -100,6 +102,7 @@ export const productData: PropsProduct[] = [
     priceMedium: "Средний Расчет",
     price: <>330 ₽ / м²</>,
     bgImg: "/card2.png",
+    bgHover: "/Card2_bw.jpg"
   },
   {
     id: 3,
@@ -120,6 +123,7 @@ export const productData: PropsProduct[] = [
     priceMedium: "Средний Расчет",
     price: <>500 ₽ / м²</>,
     bgImg: "/card3.png",
+    bgHover: "/Card3_bw.jpg"
   },
   {
     id: 4,
@@ -140,6 +144,7 @@ export const productData: PropsProduct[] = [
     priceMedium: "Средний Расчет",
     price: <>По Факту</>,
     bgImg: "/card4.png",
+    bgHover: "/Card4_bw.jpg"
   },
   {
     id: 5,
@@ -160,6 +165,7 @@ export const productData: PropsProduct[] = [
     priceMedium: "Средний Расчет",
     price: <>450 ₽ / м²</>,
     bgImg: "/card5.png",
+    bgHover: "/Card5_bw.jpg"
   },
   {
     id: 6,
@@ -180,6 +186,7 @@ export const productData: PropsProduct[] = [
     priceMedium: "Средний Расчет",
     price: <>200 ₽ / м²</>,
     bgImg: "/card6.png",
+    bgHover: "/Card6_bw.jpg"
   },
 ];
 
