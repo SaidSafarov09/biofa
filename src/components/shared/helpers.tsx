@@ -80,7 +80,7 @@ export const productData: PropsProduct[] = [
     ),
     priceMedium: "Средний Расчет",
     price: <>430 ₽ / м²</>,
-    bgImg: "/card1.png",
+    bgImg: "/Card1.jpg",
     bgHover: "/Card1_bw.jpg"
   },
   {
@@ -101,7 +101,7 @@ export const productData: PropsProduct[] = [
     ),
     priceMedium: "Средний Расчет",
     price: <>330 ₽ / м²</>,
-    bgImg: "/card2.png",
+    bgImg: "/Card2.jpg",
     bgHover: "/Card2_bw.jpg"
   },
   {
@@ -122,7 +122,7 @@ export const productData: PropsProduct[] = [
     ),
     priceMedium: "Средний Расчет",
     price: <>500 ₽ / м²</>,
-    bgImg: "/card3.png",
+    bgImg: "/Card3.jpg",
     bgHover: "/Card3_bw.jpg"
   },
   {
@@ -143,7 +143,7 @@ export const productData: PropsProduct[] = [
     ),
     priceMedium: "Средний Расчет",
     price: <>По Факту</>,
-    bgImg: "/card4.png",
+    bgImg: "/Card4.jpg",
     bgHover: "/Card4_bw.jpg"
   },
   {
@@ -164,7 +164,7 @@ export const productData: PropsProduct[] = [
     ),
     priceMedium: "Средний Расчет",
     price: <>450 ₽ / м²</>,
-    bgImg: "/card5.png",
+    bgImg: "/Card5.jpg",
     bgHover: "/Card5_bw.jpg"
   },
   {
@@ -185,7 +185,7 @@ export const productData: PropsProduct[] = [
     ),
     priceMedium: "Средний Расчет",
     price: <>200 ₽ / м²</>,
-    bgImg: "/card6.png",
+    bgImg: "/Card6.jpg",
     bgHover: "/Card6_bw.jpg"
   },
 ];
