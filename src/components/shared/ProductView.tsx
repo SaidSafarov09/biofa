@@ -57,7 +57,7 @@ export const ProductView = () => {
             <div key={id} className="cursor-pointer">
               <div className="relative min-w-[300px] min-h-[360px] m:min-w-[260px] m:min-h-[380px] l:min-w-[287px] l:min-h-[425px] xl:min-w-[360px] xl:h-[520px]">
                 {bgImg && (
-                  <div className="relative w-full h-full">
+                  <div className="relative h-[420px] m:h-[390px] l:h-[425px] xl:h-full w-full">
                     <Image
                       src={bgImg}
                       alt="cardImg"
