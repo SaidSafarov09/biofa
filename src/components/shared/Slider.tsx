@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const images = [
   "/Img1.jpeg",
@@ -47,7 +47,7 @@ const images2 = [
   "/Img37.jpeg",
 ];
 
-export const Slider = () => {
+const Slider = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -84,6 +84,26 @@ export const Slider = () => {
     setCurrentIndex(nextIndex);
     setSelectedImage(allImages[nextIndex]);
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        prevImage();
+      } else if (e.key === "ArrowRight") {
+        nextImage();
+      }
+    };
+
+    if (isModalOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      window.removeEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isModalOpen, currentIndex]);
 
   return (
     <div className="relative bg-[#33282C] py-[48px] m:py-[60px] l:py-20 before:z-[10] after:z-[10] before:absolute before:top-0 before:left-0 before:w-[100px] before:h-full before:bg-gradient-to-r before:from-black/50 before:to-transparent after:absolute after:top-0 after:right-0 after:w-[100px] after:h-full after:bg-gradient-to-l after:from-black/50 after:to-transparent">
@@ -187,3 +207,5 @@ export const Slider = () => {
     </div>
   );
 };
+
+export default Slider;

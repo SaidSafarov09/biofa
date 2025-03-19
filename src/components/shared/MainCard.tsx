@@ -6,7 +6,7 @@ type Props = {
   className?: string;
 };
 
-export const MainCard = ({ className }: Props) => {
+const MainCard = ({ className }: Props) => {
   return (
     <div className="flex justify-center w-full relative mt-[-65px] m:mt-[-75px] l:mt-[-105px] xl:mt-[-125px]">
       <div
@@ -40,3 +40,5 @@ export const MainCard = ({ className }: Props) => {
     </div>
   );
 };
+
+export default MainCard;

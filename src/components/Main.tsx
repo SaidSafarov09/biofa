@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "./ui/Button";
 import { InputBanner } from "./shared/inputBanner";
 
-export const Main = () => {
+const Main = () => {
   const phone = "+7 (953) 998-23-36";
 
   return (
@@ -71,3 +71,5 @@ export const Main = () => {
     </div>
   );
 };
+
+export default Main;

@@ -1,21 +1,22 @@
 "use client";
 
-import { Main } from "@/components/Main";
-import { About } from "@/components/shared/About";
-import { Footer } from "@/components/shared/Footer";
-import { MainCard } from "@/components/shared/MainCard";
-import { ProductView } from "@/components/shared/ProductView";
-import { Slider } from "@/components/shared/Slider";
+import { Suspense, lazy } from "react";
+const Main = lazy(() => import("@/components/Main"));
+const About = lazy(() => import("@/components/shared/About"));
+const Footer = lazy(() => import("@/components/shared/Footer"));
+const MainCard = lazy(() => import("@/components/shared/MainCard"));
+const ProductView = lazy(() => import("@/components/shared/ProductView"));
+const Slider = lazy(() => import("@/components/shared/Slider"));
 
 export default function Home() {
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <Main />
       <MainCard />
       <ProductView />
       <About />
       <Slider />
       <Footer />
-    </>
+    </Suspense>
   );
 }

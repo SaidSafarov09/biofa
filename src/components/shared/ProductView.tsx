@@ -20,7 +20,7 @@ interface Product {
   bgHover: any;
 }
 
-export const ProductView = () => {
+const ProductView = () => {
   const [isModalProductOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
@@ -35,7 +35,7 @@ export const ProductView = () => {
     document.body.style.overflow = "auto";
   };
 
-  const { isModalOpen, closeModal } = useModal();
+  const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
     <div className="bg-[#EEEEEE] mt-[60px] m:mt-[50px] px-[30px] xl:px-[140px] py-[60px] l:py-[80px]">
@@ -57,7 +57,7 @@ export const ProductView = () => {
             <div key={id} className="cursor-pointer">
               <div className="relative min-w-[300px] min-h-[360px] m:min-w-[260px] m:min-h-[380px] l:min-w-[287px] l:min-h-[425px] xl:min-w-[360px] xl:h-[520px]">
                 {bgImg && (
-                  <div className="relative h-[420px] m:h-[390px] l:h-[425px] xl:h-full w-full">
+                  <div className="relative h-[420px] m:h-[390px] l:h-[425px] xl:h-full w-full" role="button" onClick={openModal}>
                     <Image
                       src={bgImg}
                       alt="cardImg"
@@ -146,3 +146,5 @@ export const ProductView = () => {
     </div>
   );
 };
+
+export default ProductView;

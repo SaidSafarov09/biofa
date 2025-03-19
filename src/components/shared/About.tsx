@@ -9,7 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import { ModalForm } from "../ui/ModalForm";
 import Modal from "react-modal";
 
-export const About = () => {
+const About = () => {
   const { isModalOpen, openModal, closeModal } = useModal();
   return (
     <div className="px-[30px] xl:px-[140px] py-[30px] l:py-20">
@@ -143,3 +143,5 @@ export const About = () => {
     </div>
   );
 };
+
+export default About;

@@ -88,7 +88,7 @@ export const ModalProduct = ({ closeModalProduct, productId }: Props) => {
         {modalData.modalContent.map((content: any, index: any) => (
           <div
             key={index}
-            className="flex flex-col items-center bg-[#F9F9F9] rounded-[12px] px-4 py-6 justify-between l:w-[300px] h-[578px]"
+            className="flex flex-col items-center bg-[#F9F9F9] rounded-[12px] px-4 py-6 justify-between l:w-[300px] h-[500px]"
           >
             {content.img && (
               <div
