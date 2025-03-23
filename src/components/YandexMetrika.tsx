@@ -1,33 +1,48 @@
-"use client"
+"use client";
 import { useEffect } from "react";
+import Script from "next/script";
 
 const YandexMetrika = () => {
   useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.async = true;
-    script.src = "https://mc.yandex.ru/metrika/tag.js";
-    document.head.appendChild(script);
+    if (typeof window === "undefined") return;
 
-    script.onload = () => {
-      if (window.ym) {
-        window.ym(100420905, "init", {
-          clickmap: true,
-          trackLinks: true,
-          accurateTrackBounce: true,
-          webvisor: true,
-        });
-      }
+    window.ym = window.ym || function () {
+      (window.ym.a = window.ym.a || []).push(arguments);
     };
 
-    return () => {
-      // Cleanup script on component unmount
-      document.head.removeChild(script);
-    };
+    window.ym(100420905, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true,
+    });
   }, []);
 
   return (
     <>
+      <Script
+        id="yandex-metrika"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(m,e,t,r,i,k,a){
+              m[i]=m[i]||function(){
+                (m[i].a=m[i].a||[]).push(arguments)
+              };
+              m[i].l=1*new Date();
+              k=e.createElement(t),a=e.getElementsByTagName(t)[0],
+              k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+            })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+            
+            ym(100420905, "init", {
+              clickmap:true,
+              trackLinks:true,
+              accurateTrackBounce:true,
+              webvisor:true
+            });
+          `,
+        }}
+      />
       <noscript>
         <div>
           <img
