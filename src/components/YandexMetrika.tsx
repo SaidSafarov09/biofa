@@ -4,18 +4,17 @@ import Script from "next/script";
 
 const YandexMetrika = () => {
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    window.ym = window.ym || function () {
-      (window.ym.a = window.ym.a || []).push(arguments);
-    };
-
-    window.ym(100420905, "init", {
-      clickmap: true,
-      trackLinks: true,
-      accurateTrackBounce: true,
-      webvisor: true,
-    });
+    if (typeof window !== "undefined") {
+      window.ym = window.ym || function () {
+        (window.ym.a = window.ym.a || []).push(arguments);
+      };
+      window.ym(100420905, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true,
+      });
+    }
   }, []);
 
   return (
