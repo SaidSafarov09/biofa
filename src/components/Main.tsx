@@ -47,7 +47,7 @@ const Main = () => {
           <div
             className="w-full h-[620px] rounded-[32px] pt-8  px-[10px] m:pt-[38px] m:pl-[15px] m:pr-[unset] l:pl-5 l:pt-16 xl:pl-[60px]"
             style={{
-              backgroundImage: "url('banner.png')",
+              backgroundImage: "url('/banner.png')",
               backgroundSize: "cover",
               backgroundPosition: "center center",
             }}
