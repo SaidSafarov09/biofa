@@ -45,12 +45,8 @@ const Main = () => {
           className="px-[15px] l:px-2.5 xl:px-20 mt-[30px] l:mt-9 w-full"
         >
           <div
-            className="w-full h-[620px] rounded-[32px] pt-8  px-[10px] m:pt-[38px] m:pl-[15px] m:pr-[unset] l:pl-5 l:pt-16 xl:pl-[60px]"
-            style={{
-              backgroundImage: "url('/banner.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center center",
-            }}
+            className="w-full h-[620px] rounded-[32px] pt-8  px-[10px] m:pt-[38px] m:pl-[15px]  l:pl-5 l:pt-16 xl:pl-[60px] bg-[url('/banner.png')] bg-cover bg-center"
+            
           >
             <div className="flex flex-col gap-y-6 l:gap-y-8">
               <p className="font-bold text-[32px] leading-10  m:text-[40px] xl:text-[48px] text-white m:leading-[50px] xl:leading-[60px]">
