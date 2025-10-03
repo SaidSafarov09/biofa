@@ -12,6 +12,7 @@ type Props = {
   optionsLeft?: ReactElement;
   optionsRight?: ReactElement;
   volumePrice: VolumePrice[];
+  
 };
 
 type CommonInfo = {
